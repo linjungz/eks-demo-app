@@ -8,8 +8,8 @@ phases:
       - 
   build:
     commands:
-      - docker build -t $REPOSITORY:$CODEBUILD_SOURCE_VERSION .
-      - docker tag $REPOSITORY:$CODEBUILD_SOURCE_VERSION $REGISTRY/$REPOSITORY:$CODEBUILD_SOURCE_VERSION
+      - docker build -t $REPOSITORY .
+      - docker tag $REPOSITORY $REGISTRY/$REPOSITORY:$CODEBUILD_SOURCE_VERSION
   post_build:
     commands:
       - echo Entered the post_build phase...
