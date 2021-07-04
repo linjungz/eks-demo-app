@@ -9,10 +9,10 @@ phases:
   build:
     commands:
       - docker build -t $REPOSITORY .
-      - docker tag $REPOSITORY $REGISTRY/$REPOSITORY:CODEBUILD_RESOLVED_SOURCE_VERSION
   post_build:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - echo Pushing the Docker image to ECR...
-      - docker push $REGISTRY/$REPOSITORY:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker tag $REPOSITORY $REGISTRY/$REPOSITORY
+      - docker push $REGISTRY/$REPOSITORY
