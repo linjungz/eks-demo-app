@@ -13,5 +13,5 @@ phases:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - echo Pushing the Docker image to ECR...
-      - docker tag $REPOSITORY $REGISTRY/$REPOSITORY
-      - docker push $REGISTRY/$REPOSITORY
+      - docker tag $REPOSITORY $REGISTRY/$REPOSITORY:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push $REGISTRY/$REPOSITORY:$CODEBUILD_RESOLVED_SOURCE_VERSION
